@@ -1,0 +1,261 @@
+
+/*
+  CSS Rest
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+  }
+
+/* variables for styling */
+:root {
+
+    --bg-color : #fafafa;
+    --text-color : #353535;
+    --bg-secondary-color : #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-color);
+    display: flex;
+    padding: 5vh;
+    overflow: hidden;
+}
+
+main {
+    height: 100%;
+    width: 70%;
+    padding-right: 10px;
+}
+
+aside {
+    height: 100%;
+    width: 30%;
+    padding-left: 10px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+    
+}
+
+#location-input {
+    background-color: var(--bg-secondary-color);
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
+    border: none;
+    outline: none;
+}
+
+.cards {
+    background-color: var(--bg-secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#current-forecast .cards {
+    height: 50vh;
+    width: 50%;
+}
+
+
+#current-forecast {
+    display: flex;
+    justify-content: space-between  ;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+#hourly-forecast {
+
+    height: calc(100vh - (10vh + 64px + 40px + 50vh));
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+
+}
+#temperature-large {
+    margin-right: 5px;
+}
+
+#additional-info {
+    margin-left: 5px;
+}
+
+.temp {
+    position: relative;
+}
+
+.large-temp {
+    /* font-size: 10em; */
+    font-size: calc(6vh + 5vw);
+}
+
+#time {
+    font-weight: 600;
+    font-size: calc(5vh + 4vw);
+    text-align: center;
+    position: relative;
+}
+
+#meridiem {
+    position: absolute;
+    font-size: small;
+}
+.temp::after {
+    content: "\2103";
+    position: absolute;
+    font-size: 0.2em;
+    top : 0;
+    
+}
+
+.avg-temp {
+    position: relative;
+}
+.avg-temp::after {
+    content: "\2103";
+    position: absolute;
+    font-size: .75em;
+    top: -5px;
+    right: -15px;
+    
+}
+#aside-card {
+    height: 100%;
+
+}
+
+.text-md {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    text-align: center
+}
+
+.text-lg {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: calc(1vh + 1vw);
+    text-align: center;
+
+}
+
+.cards table {
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+.table-text {
+    font-weight: 600;
+    margin: auto;
+}
+
+.cards-table-row {
+    margin: 20px 10px;
+
+}
+
+.cards-table-row td {
+    padding: 5px 40px;
+    
+
+}
+
+#hourly-forecasts-container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+#hourly-forecasts-container::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+.forecasts-hr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    padding: 5px;
+    margin: 0px 30px;
+}
+
+.hours, .md-temp {
+    font-weight: 600;
+    text-wrap: nowrap;
+}
+
+.md-temp {
+    font-size: 2em;
+}
+
+.md-temp::after {
+    font-size: 0.5em;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
+}
+
+.warning {
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-color);
+    display: grid;
+    place-items: center;
+}
+
+@media(width >= 920px) and (height >=640px) {
+    .warning {
+        display: none;
+    }
+}
+

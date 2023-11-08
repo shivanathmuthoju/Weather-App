@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <main>
+            <div class="search-container">
+                <input type="text" name="location" id="location-input" placeholder="Search location">
+            </div>
+            <div class="weather">
+                <div id="current-forecast">
+                    <div class="cards" id="temperature-large">
+                        <h1 class="temp large-temp">25</h1><span></span>
+                        <p class="text-md locations">Hyderabad</p>
+                    </div>
+                    <div class="cards" id="additional-info">
+                        <img src="" alt="weather-icon" class="icon">
+                        <p class="text-md" id="weather-text">CLOUDY</p>
+                        <table>
+                            <tr class="cards-table-row">
+                                <td><p class="table-text">Wind Speed</p></td>
+                                <td><p class="table-text" id="windSpeed">224 kph</p></td>
+                            </tr>
+                            <tr class="cards-table-row">
+                                <td><p class="table-text">Humidity</p></td>
+                                <td><p class="table-text" id="humidity">220</p></td>
+                            </tr>
+                            <tr class="cards-table-row">
+                                <td><p class="table-text">Feels Like</p></td>
+                                <td><p class="table-text" id="feelsLike">2</p></td>
+                            </tr>
+                            <tr class="cards-table-row">
+                                <td><p class="table-text">UV</p></td>
+                                <td><p class="table-text" id="uv">2</p></td>
+                            </tr>
+                            <tr class="cards-table-row">
+                                <td><p class="table-text">AQI</p></td>
+                                <td><p class="table-text" id = "aqi">2</p></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="cards" id="hourly-forecast">
+                    <p class="text-md">HOURLY FORECASTS</p>
+                    <div id="hourly-forecasts-container">
+                        <div class="forecasts-hr">
+                            <!-- hourly forecasts -->
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </main>
+        <aside>
+            <div class="cards" id="aside-card">
+                <div class="timeconatiner">
+                    <p id="time">12:00<span id="meridiem"></span></p>
+                    <p class="locations text-lg">London</p>
+                </div>
+                <table id="daysForecastContainer">
+                    
+                </table>
+            </div>
+        </aside>
+
+    </div>
+    <div class="warning">
+        <p class="text-md">This website does not support mobile devices. please use desktop</p>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
