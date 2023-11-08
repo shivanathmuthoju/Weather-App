@@ -14,7 +14,7 @@ let icon = document.querySelector(".icon");
 let time = document.getElementById("time");
 let hourlyForecastsContainer = document.getElementById("hourly-forecasts-container");
 let daysForecastsContainer = document.getElementById("daysForecastContainer");
-let meridiem = document.getElementById("meridiem");
+// let meridiem = document.getElementById("meridiem");
 let search = document.getElementById("location-input");
 
 function convertTime(hours, minutes) {
@@ -69,7 +69,7 @@ function getTime() {
     let time = convertTime(presentHour, presentMin)
     let timetext =  `${time.hour}:${time.minute}`   
     time.innerText = timetext;
-    meridiem.innerText = time.meridiem;
+    // meridiem.innerText = time.meridiem;
 }
 
 // adds zero to the value passed
