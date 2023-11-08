@@ -177,7 +177,7 @@ function getTodaysDate() {
 }
 // calls api for forecast information
 async function fetchForecast(location) {
-    let url = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=7&aqi=yes&alerts=no`
+    let url = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=7&aqi=yes&alerts=no`
     let forecast = await fetch(url).then(res => res.json());
     return forecast;
 }
