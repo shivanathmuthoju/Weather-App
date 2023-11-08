@@ -11,10 +11,10 @@ let uv = document.getElementById("uv");
 let aqi = document.getElementById("aqi");
 let weatherText = document.getElementById("weather-text");
 let icon = document.querySelector(".icon");
-let time = document.getElementById("time");
+let timedisplay = document.getElementById("time");
 let hourlyForecastsContainer = document.getElementById("hourly-forecasts-container");
 let daysForecastsContainer = document.getElementById("daysForecastContainer");
-// let meridiem = document.getElementById("meridiem");
+let meridiem = document.getElementById("meridiem");
 let search = document.getElementById("location-input");
 
 function convertTime(hours, minutes) {
@@ -68,8 +68,8 @@ function getTime() {
     let presentMin = t.getMinutes();
     let time = convertTime(presentHour, presentMin)
     let timetext =  `${time.hour}:${time.minute}`   
-    time.innerText = timetext;
-    // meridiem.innerText = time.meridiem;
+    timedisplay.innerText = timetext;
+    meridiem.innerText = time.meridiem;
 }
 
 // adds zero to the value passed
