@@ -11,12 +11,25 @@ let uv = document.getElementById("uv");
 let aqi = document.getElementById("aqi");
 let weatherText = document.getElementById("weather-text");
 let icon = document.querySelector(".icon");
-let time = document.getElementById("time");
+let timedisplay = document.getElementById("time");
 let hourlyForecastsContainer = document.getElementById("hourly-forecasts-container");
 let daysForecastsContainer = document.getElementById("daysForecastContainer");
 let meridiem = document.getElementById("meridiem");
 let search = document.getElementById("location-input");
+let spinner = document.querySelector(".spinner");
 
+
+function hideSpinner() {
+
+    spinner.style.display = "none";
+
+}
+
+function showSpinner() {
+
+    spinner.style.display = "grid";
+
+}
 function convertTime(hours, minutes) {
 
     let text = "AM";
@@ -68,7 +81,7 @@ function getTime() {
     let presentMin = t.getMinutes();
     let time = convertTime(presentHour, presentMin)
     let timetext =  `${time.hour}:${time.minute}`   
-    time.innerText = timetext;
+    timedisplay.innerText = timetext;
     meridiem.innerText = time.meridiem;
 }
 
@@ -177,7 +190,7 @@ function getTodaysDate() {
 }
 // calls api for forecast information
 async function fetchForecast(location) {
-    let url = `http://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=7&aqi=yes&alerts=no`
+    let url = `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${location}&days=7&aqi=yes&alerts=no`
     let forecast = await fetch(url).then(res => res.json());
     return forecast;
 }
@@ -186,7 +199,8 @@ async function updateDOM(location) {
 
     // let currentWeather = await fetchCurrentData(location);
     let forecastWeather = await fetchForecast(location);
-    if ('error' in forecastWeather) {   
+    if ('error' in forecastWeather) {  
+        hideSpinner();
         window.alert("Please enter valid location");
         return;
     }
@@ -198,8 +212,9 @@ async function updateDOM(location) {
         await updateTemp(currentTemp)
         await updateLocation(forecastWeather.location.name);
         await updateAdditionalInfo(forecastWeather);
-        await updateHourly(todaysHourlyForecasts.hour)
-        await updateDays(forecastWeather.forecast.forecastday)
+        await updateHourly(todaysHourlyForecasts.hour);
+        await updateDays(forecastWeather.forecast.forecastday);
+        hideSpinner();
     }
 
 }
@@ -208,6 +223,7 @@ async function updateDOM(location) {
 search.addEventListener('keydown', (e) => {
 
     if (e.code == "Enter") {
+        showSpinner();
         let searchLocation = search.value;
         search.value = "";
         updateDOM(searchLocation);
